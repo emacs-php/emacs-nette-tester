@@ -1,6 +1,6 @@
-* nette-tester
+* nette-tester [[https://travis-ci.org/Fuco1/emacs-nette-tester.svg?branch=master]]
 
-Emacs support for [Nette Tester](https://github.com/nette/tester).
+Emacs support for [[https://github.com/nette/tester][Nette Tester]].
 
 * Usage
 
