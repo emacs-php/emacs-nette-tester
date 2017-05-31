@@ -6,7 +6,7 @@
 ;; Maintainer: Matúš Goljer <matus.goljer@gmail.com>
 ;; Version: 1.0.0
 ;; Created: 30th May 2017
-;; Package-requires: ()
+;; Package-requires: ((dash 2.13.0))
 ;; Keywords: convenience, languages
 
 ;; This program is free software; you can redistribute it and/or
@@ -25,6 +25,8 @@
 ;;; Commentary:
 
 ;;; Code:
+
+(require 'dash)
 
 (require 'compile)
 (require 'diff)
