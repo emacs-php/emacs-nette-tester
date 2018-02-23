@@ -39,12 +39,39 @@
     map)
   "Map used in compilation mode for additional nette tester actions.")
 
+
+(defun nette-tester--sanitize-file-name (string)
+  "Sanitize STRING as file name.
+
+Remove surrounding whitespace and unquote so it is suitable as an
+  argument to further elisp processing."
+  (->> (s-trim string)
+       (replace-regexp-in-string "\\`'" "")
+       (replace-regexp-in-string "'\\'" "")))
+
+(defun nette-tester--read-file-name (&optional point)
+  "Read the file name after POINT and move to the end of the filename."
+  (setq point (or point (point)))
+  (nette-tester--sanitize-file-name
+   (buffer-substring-no-properties
+    point
+    (progn
+      (forward-sexp)
+      (point)))))
+
 ;;;###autoload
 (defun nette-tester-ediff ()
   "Run `ediff' on the files on current line."
   (interactive)
-  (-let (((_ file-a file-b) (split-string (thing-at-point 'line) "'" t " +")))
-    (ediff-files file-a file-b)))
+  (let ((line (thing-at-point 'line)))
+    (with-temp-buffer
+      (insert line)
+      (shell-script-mode)
+      (goto-char (point-min))
+      (forward-sexp) ;; skip diff
+      (let ((file-a (nette-tester--read-file-name))
+            (file-b (nette-tester--read-file-name)))
+        (ediff-files file-a file-b)))))
 
 ;;;###autoload
 (defun nette-tester-diff ()
