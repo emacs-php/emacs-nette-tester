@@ -8,7 +8,7 @@ Load this package and register =nette-tester= to =compilation-error-regexp-alist
 
 #+BEGIN_SRC elisp
 (require 'emacs-nette-tester)
-(push 'nette-tester 'compilation-error-regexp-alist)
+(push 'nette-tester compilation-error-regexp-alist)
 #+END_SRC
 
 That's it!
