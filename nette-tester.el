@@ -96,7 +96,7 @@ Remove surrounding whitespace and unquote so it is suitable as an
                                    'keymap nette-tester-compilation-keymap
                                    'mouse-face 'highlight)))))
   (if (assq 'nette-tester compilation-error-regexp-alist-alist)
-      (setf (cdr (assq 'nette-tester compilation-error-regexp-alist-alist)) form)
+      (setf (cdr (assq 'nette-tester compilation-error-regexp-alist-alist)) (cdr form))
     (push form compilation-error-regexp-alist-alist)))
 
 (provide 'nette-tester)
