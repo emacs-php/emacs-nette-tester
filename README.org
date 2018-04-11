@@ -2,6 +2,22 @@
 
 Emacs support for [[https://github.com/nette/tester][Nette Tester]].
 
+* Features
+
+*** Support for compilation mode
+
+If you run tester in compilation-mode, for example by invoking =C-u M-x
+compile= command with something like
+
+#+BEGIN_SRC sh
+./vendor/bin/tester tests
+#+END_SRC
+
+the output will be parsed and references to files will be turned into
+clickable links.  Also the line with the diff output will become
+clickable and will start an ediff session of expected vs actual test
+results.
+
 * Usage
 
 Load this package and register =nette-tester= to =compilation-error-regexp-alist=:
