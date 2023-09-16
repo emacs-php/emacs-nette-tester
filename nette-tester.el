@@ -4,9 +4,10 @@
 
 ;; Author: Matúš Goljer <matus.goljer@gmail.com>
 ;; Maintainer: Matúš Goljer <matus.goljer@gmail.com>
+;; URL: https://github.com/emacs-php/emacs-nette-tester
 ;; Version: 1.0.0
 ;; Created: 30th May 2017
-;; Package-requires: ((dash 2.13.0))
+;; Package-requires: ((dash "2.13.0") (s "1.9.0"))
 ;; Keywords: convenience, languages
 
 ;; This program is free software; you can redistribute it and/or
@@ -27,6 +28,7 @@
 ;;; Code:
 
 (require 'dash)
+(require 's)
 
 (require 'compile)
 (require 'diff)
