@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "nette-tester"
          "1.0.0"
          "Emacs support for Nette Tester")
